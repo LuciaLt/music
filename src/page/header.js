@@ -8,18 +8,29 @@ render(){
     const menu = (
         <Menu>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-              1st menu item
+            <a target="_blank" rel="noopener noreferrer" className="login_item" href="http://www.alipay.com/">
+                <em>手机号登录</em>
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-              2nd menu item
+            <a target="_blank" rel="noopener noreferrer" className="login_item" href="https://music.163.com/api/sns/authorize?snsType=10&amp;clientType=web2&amp;callbackType=Login&amp;forcelogin=true">
+
+                <em>微信登录</em>
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-              3rd menu item
+            <a target="_blank" rel="noopener noreferrer" className="login_item" href="https://music.163.com/api/sns/authorize?snsType=5&amp;clientType=web2&amp;callbackType=Login&amp;forcelogin=true">
+                <em>QQ登录</em>
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" className="login_item" href="https://music.163.com/api/sns/authorize?snsType=2&amp;clientType=web2&amp;callbackType=Login&amp;forcelogin=true">
+                <em>新浪微博登录</em>
+            </a>
+          </Menu.Item>
+          <Menu.Item>
+            <a target="_blank" rel="noopener noreferrer" className="login_item" href="http://www.tmall.com/">
+                <em>网易邮箱帐号登录</em>
             </a>
           </Menu.Item>
         </Menu>
@@ -68,11 +79,11 @@ render(){
                     </div>
                 </div> */}
                 <Dropdown overlay={menu} placement="bottomLeft" className="m-tophead f-pr j-tflag">
-                    <a href="#" className="link s-fc3" data-action="login">登录</a>
+                    <a href="#" className="link s-fc3 login_name" data-action="login">登录</a>
                 </Dropdown>
 
 
-                <div className="m-srch f-pr j-suggest">
+                {/* <div className="m-srch f-pr j-suggest">
                     <div className="srchbg">
                     <   span className="parent">
                             <input type="text" name="srch" className="txt j-flag"/>
@@ -82,7 +93,7 @@ render(){
                     <div className="j-showoff u-showoff f-hide"><p>现在支持搜索MV啦~</p></div>
                         <span className="j-flag">&nbsp;</span>
                     <div className="u-lstlay j-flag"></div>
-                </div>
+                </div> */}
 
                 {/* <div class="m-subnav m-subnav-up f-pr j-tflag f-hide"></div> */}
 

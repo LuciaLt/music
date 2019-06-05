@@ -196,6 +196,13 @@ a:-webkit-any-link {
     cursor: pointer;
     text-decoration: underline;
 }
+
+.login_name,.login_item{
+    text-decoration: none !important;
+}
+.login_name{
+    padding-top: 6px !important;
+}
 /* .m-tlist .arr {
     position: absolute;
     top: -8px;
