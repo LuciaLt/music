@@ -1,7 +1,26 @@
 import React,{Component} from 'react'
-import "../css/content.css"
+import "../../css/index.css"
+import axios from 'axios';
 
 class Content extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            data: []
+        }
+    }
+
+    componentDidMount(){
+       axios.get('http://localhost:3000/recommend/resource')
+        .then(res => {
+            console.log(res)
+            if(res.data.code === 200){
+                this.setState({data: res.data.data})
+            }
+        })
+    }
+ 
+
     render(){
         return(
             <div>
@@ -49,7 +68,10 @@ class Content extends Component{
                                 </div>
                             <span className="more"><a href="/discover/playlist/" className="s-fc3">更多</a><i className="cor s-bg s-bg-6">&nbsp;</i></span>
                         </div>
-                    <ul className="m-cvrlst f-cb">
+
+
+                
+                    {/* <ul className="m-cvrlst f-cb">
                     <li>
                     <div className="u-cover u-cover-1">
                     <img src="http://p2.music.126.net/r4AmK3NdGjFlltfncXQweg==/109951164120425583.jpg?param=140y140" />
@@ -181,7 +203,7 @@ class Content extends Component{
                     </a>
                     </p>
                     </li>
-                    </ul>
+                    </ul> */}
 
 
                     </div>
@@ -459,7 +481,7 @@ class Content extends Component{
                     </dt>
                     <dd>
                     <ol>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no no-top">1</span>
                     <a href="/song?id=1368711349" className="nm s-fc0 f-thide" title="想">想</a>
                     <div className="oper">
@@ -468,7 +490,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="1000" data-res-fee="8" data-res-type="18" data-res-id="1368711349" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no no-top">2</span>
                     <a href="/song?id=1347181386" className="nm s-fc0 f-thide" title="公子向北走">公子向北走</a>
                     <div className="oper">
@@ -477,7 +499,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1347181386" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no no-top">3</span>
                     <a href="/song?id=1363575028" className="nm s-fc0 f-thide" title="自言自语">自言自语</a>
                     <div className="oper">
@@ -486,7 +508,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1363575028" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">4</span>
                     <a href="/song?id=1368756029" className="nm s-fc0 f-thide" title="好想我是她">好想我是她</a>
                     <div className="oper">
@@ -495,7 +517,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1368756029" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">5</span>
                     <a href="/song?id=1368327462" className="nm s-fc0 f-thide" title="耿">耿</a>
                     <div className="oper">
@@ -504,7 +526,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1368327462" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">6</span>
                     <a href="/song?id=554241732" className="nm s-fc0 f-thide" title="我的名字">我的名字</a>
                     <div className="oper">
@@ -513,7 +535,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="554241732" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">7</span>
                     <a href="/song?id=1368712158" className="nm s-fc0 f-thide" title="我会怀念此刻的我们">我会怀念此刻的我们</a>
                     <div className="oper">
@@ -522,7 +544,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1368712158" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">8</span>
                     <a href="/song?id=1365238185" className="nm s-fc0 f-thide" title="Love is Love">Love is Love</a>
                     <div className="oper">
@@ -531,7 +553,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1365238185" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">9</span>
                     <a href="/song?id=1353427383" className="nm s-fc0 f-thide" title="失重">失重</a>
                     <div className="oper">
@@ -540,7 +562,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1353427383" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">10</span>
                     <a href="/song?id=1359356908" className="nm s-fc0 f-thide" title="晚安">晚安</a>
                     <div className="oper">
@@ -569,7 +591,7 @@ class Content extends Component{
                     </dt>
                     <dd>
                     <ol>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no no-top">1</span>
                     <a href="/song?id=1367368790" className="nm s-fc0 f-thide" title="情深深雨濛濛">情深深雨濛濛</a>
                     <div className="oper">
@@ -578,7 +600,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1367368790" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no no-top">2</span>
                     <a href="/song?id=1368371706" className="nm s-fc0 f-thide" title="你曾是少年">你曾是少年</a>
                     <div className="oper">
@@ -587,7 +609,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1368371706" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no no-top">3</span>
                     <a href="/song?id=1367452194" className="nm s-fc0 f-thide" title="我的一个道姑朋友">我的一个道姑朋友</a>
                     <div className="oper">
@@ -596,7 +618,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1367452194" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">4</span>
                     <a href="/song?id=1365221826" className="nm s-fc0 f-thide" title="四块五">四块五</a>
                     <div className="oper">
@@ -605,7 +627,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1365221826" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">5</span>
                     <a href="/song?id=1365898499" className="nm s-fc0 f-thide" title="失眠飞行">失眠飞行</a>
                     <div className="oper">
@@ -614,7 +636,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1365898499" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">6</span>
                     <a href="/song?id=1362247767" className="nm s-fc0 f-thide" title="别叫我达芬奇">别叫我达芬奇</a>
                     <div className="oper">
@@ -623,7 +645,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1362247767" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">7</span>
                     <a href="/song?id=1356350562" className="nm s-fc0 f-thide" title="这一生关于你的风景">这一生关于你的风景</a>
                     <div className="oper">
@@ -632,7 +654,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1356350562" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">8</span>
                     <a href="/song?id=1365393542" className="nm s-fc0 f-thide" title="孤身">孤身</a>
                     <div className="oper">
@@ -641,7 +663,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1365393542" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">9</span>
                     <a href="/song?id=1366957080" className="nm s-fc0 f-thide" title="残酷月光">残酷月光</a>
                     <div className="oper">
@@ -650,7 +672,7 @@ class Content extends Component{
                     <a href="#" className="s-bg s-bg-12" title="收藏" hidefocus="true" data-res-level="0" data-res-fee="8" data-res-type="18" data-res-id="1366957080" data-res-action="subscribe"></a>
                     </div>
                     </li>
-                    <li onMouseOver="this.className='z-hvr'" onMouseOut="this.className=''">
+                    <li>
                     <span className="no">10</span>
                     <a href="/song?id=1368725399" className="nm s-fc0 f-thide" title="Never Really Over">Never Really Over</a>
                     <div className="oper">
@@ -663,7 +685,7 @@ class Content extends Component{
                     <div className="more"><a href="/discover/toplist?id=3779629" className="s-fc0">查看全部&gt;</a></div>
                     </dd>
                     </dl>
-                    <dl className="blk blk-1">
+                    {/* <dl className="blk blk-1">
                     <dt className="top">
                     <div className="cver u-cover u-cover-4">
                     <img className="j-img" src="http://p4.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg?param=100y100" />
@@ -770,9 +792,9 @@ class Content extends Component{
                     </div>
                     </li>
                     </ol>
-                    <div className="more"><a href="/discover/toplist?id=2884035" clclassNameass="s-fc0">查看全部&gt;</a></div>
+                    <div className="more"><a href="/discover/toplist?id=2884035" className="s-fc0">查看全部&gt;</a></div>
                     </dd>
-                    </dl>
+                    </dl> */}
                     </div>
                     </div>
                     </div>
