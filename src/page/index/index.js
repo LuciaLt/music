@@ -30,7 +30,7 @@ class Content extends Component{
                     <div className="wrap">
 
                         <div className="ban f-pr">
-                            <a className="active d-flag" href="/album?id=490106" >
+                            <a className="active d-flag" >
                             
                             <img className="d-flag" src="http://p1.music.126.net/HcxJaW0-vRJAsObLEMr5_g==/109951164118165274.jpg" />
                             </a>
