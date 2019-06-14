@@ -66,15 +66,31 @@ class Header extends Component{
         });
       }
     
-      handleSubmit() {
-        window.alert(this.state.userName)
-        window.alert(this.state.passWord)
+      handleSubmit = e =>  {
+        // window.alert(this.state.userName)
+        // window.alert(this.state.passWord)
+        e.preventDefault();
         axios.get('http://localhost:3000/login/cellphone', {
-            phone: this.state.userName,
-            password: this.state.passWord
+            params:{
+                phone: this.state.userName,
+                password: this.state.passWord
+            }    
+            
           })
         .then(function (res) {
-            console.log(res);
+            console.log(res.data.account.userName);
+            let name=res.data.account.userName;
+            let namephone=name.slice(2)
+            console.log(namephone)
+    
+            if(res.data.code===200){
+                window.alert('登录成功')
+                
+            
+
+            }else{
+                window.alert("登录失败")
+            }
           })
       }
       
@@ -137,11 +153,12 @@ render(){
           onOk={this.handleOk}
           confirmLoading={confirmLoading}
           onCancel={this.handleCancel}
-          footer={null}
+        //   footer={null}
+          destroyOnClose
         >
 
 
-<Form className="login-form">
+<Form className="login-form" onClick={this.handleSubmit}>
         <Form.Item>
             <Input
               name="userName"
@@ -166,7 +183,7 @@ render(){
           {/* <a className="login-form-forgot" href="">
             Forgot password
           </a> */}
-          <Button type="primary submit" htmlType="submit" className="login-form-button" onClick={this.handleSubmit}>
+          <Button type="primary submit" htmlType="submit" className="login-form-button" >
             登录
           </Button>
           {/* Or <a href="">register now!</a> */}
